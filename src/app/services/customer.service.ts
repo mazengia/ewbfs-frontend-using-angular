@@ -17,23 +17,23 @@ export class CustomerService {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<CustomerResponse>(`${environment.Url}/customers`, {params});
+    return this.http.get<CustomerResponse>(`${environment.Back_End_Url}/customers`, {params});
   }
 
   addCustomers(customer: Customer): Observable<Customer> {
-    return this.http.post<Customer>(`${environment.Url}/customers`, customer);
+    return this.http.post<Customer>(`${environment.Back_End_Url}/customers`, customer);
   }
 
   deleteCustomers(id: number): Observable<Customer> {
-    return this.http.delete<Customer>(`${environment.Url}/customers/${id}`);
+    return this.http.delete<Customer>(`${environment.Back_End_Url}/customers/${id}`);
   }
 
   findCustomersById(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`${environment.Url}/customers/${id}`);
+    return this.http.get<Customer>(`${environment.Back_End_Url}/customers/${id}`);
   }
 
   updateCustomers(id: number, customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${environment.Url}/customers/${id}`, customer);
+    return this.http.put<Customer>(`${environment.Back_End_Url}/customers/${id}`, customer);
   }
 
 }

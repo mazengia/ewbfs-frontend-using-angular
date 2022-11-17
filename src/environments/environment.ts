@@ -3,10 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  // ISSUER_URL: "http://10.1.12.70:8081/auth/realms/enat",
   ISSUER_URL: "http://10.1.22.72:8081/auth/realms/enat",
   production: false,
   // Url: 'http://localhost:8080/EWBFS-BACKEND-0.0.1-SNAPSHOT'
-  Url: "http://localhost:8081",
+  Back_End_Url: "http://localhost:8081",
   HR_HOST: 'http://10.1.22.72:8083/hr',
 };
 

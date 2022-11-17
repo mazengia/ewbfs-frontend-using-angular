@@ -1,10 +1,19 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a routerLink="/welcome">
+      <span nz-icon nzType="home"></span>
+    </a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>Customers</nz-breadcrumb-item>
+</nz-breadcrumb>
 <nz-card [nzTitle]="cardTitle" [nzExtra]="tabExtraTpl">
   <ng-template #cardTitle>
     <i nz-icon nzType="branches"></i> Enat-product
   </ng-template>
   <ng-template #tabExtraTpl>
-    <button nz-button nzType="primary" (click)="openDrawer(undefined)" class="add-button"><i nz-icon nzType="plus"></i>Add
-      Team
+    <button nz-button nzType="primary" (click)="openDrawer(undefined)" class="add-button">
+      <i nz-icon nzType="plus"></i>
+      Add Customer
     </button>
   </ng-template>
   <nz-table #productList [nzData]="customer" nzTableLayout="fixed"
@@ -42,17 +51,23 @@
       <td nzAlign="center">{{data.valid_trade_license}}</td>
       <td nzAlign="center">
         <a class="edit-btn" (click)="openDrawer(data.id)"
-           nz-tooltip="edit">Edit</a>
+           nz-tooltip="edit">
+          <i nz-icon nzType="edit" nz-tooltip="edit request"></i>
+        </a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-popconfirm="" nzPopconfirmTitle="Are you sure delete this task?"
-           (nzOnConfirm)="deleteOperator(data.id)" (nzOnCancel)="cancel()">
+           (nzOnConfirm)="deleteCustomer(data.id)" (nzOnCancel)="cancel()">
           <i class="delete-button" nzTooltipColor="red" nz-icon nzType="delete" nzTheme="outline"
              nz-tooltip="delete"></i>
         </a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a  (click)="openRequestDrawer(data.id,data.full_name)">Request</a>
+        <a  (click)="addNewRequestDrawer(data.id,data.full_name)">
+          <i nz-icon nzType="plus" nz-tooltip="add request"></i>
+        </a>
         <nz-divider nzType="vertical"></nz-divider>
-        <a  (click)="requestDetail(data.id)">Detail</a>
+        <a  (click)="requestDetail(data.id)">
+          <span nz-icon nzType="eye" nzTheme="outline" nz-tooltip="view request details"></span>
+        </a>
       </td>
     </tr>
     </tbody>

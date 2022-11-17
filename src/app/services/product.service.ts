@@ -16,23 +16,23 @@ export class ProductService {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<ProductResponse>(`${environment.Url}/products`, {params});
+    return this.http.get<ProductResponse>(`${environment.Back_End_Url}/products`, {params});
   }
 
   addProduct(product: Product): Observable<Product> {
-    return this.http.post<Product>(`${environment.Url}/products`, product);
+    return this.http.post<Product>(`${environment.Back_End_Url}/products`, product);
   }
 
   deleteProduct(id: number): Observable<Product> {
-    return this.http.delete<Product>(`${environment.Url}/products/${id}`);
+    return this.http.delete<Product>(`${environment.Back_End_Url}/products/${id}`);
   }
 
   findProductById(id: number): Observable<any> {
-    return this.http.get(`${environment.Url}/products/${id}`);
+    return this.http.get(`${environment.Back_End_Url}/products/${id}`);
   }
 
   updateProduct(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${environment.Url}/products/${id}`, product);
+    return this.http.put<Product>(`${environment.Back_End_Url}/products/${id}`, product);
   }
 
 }

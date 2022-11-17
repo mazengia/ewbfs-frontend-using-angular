@@ -1,3 +1,11 @@
+<nz-breadcrumb>
+  <nz-breadcrumb-item>
+    <a routerLink="/welcome">
+      <span nz-icon nzType="home"></span>
+    </a>
+  </nz-breadcrumb-item>
+  <nz-breadcrumb-item>Enat Products</nz-breadcrumb-item>
+</nz-breadcrumb>
 <nz-card [nzTitle]="cardTitle" [nzExtra]="tabExtraTpl">
   <ng-template #cardTitle>
     <i nz-icon nzType="branches"></i> Enat-product
@@ -41,7 +49,7 @@
            nz-tooltip="edit">Edit</a>
         <nz-divider nzType="vertical"></nz-divider>
         <a nz-popconfirm="" nzPopconfirmTitle="Are you sure delete this task?"
-           (nzOnConfirm)="deleteOperator(data.id)" (nzOnCancel)="cancel()">
+           (nzOnConfirm)="deleteEnatProduct(data.id)" (nzOnCancel)="cancel()">
           <i class="delete-button" nzTooltipColor="red" nz-icon nzType="delete" nzTheme="outline"
              nz-tooltip="delete"></i>
         </a>

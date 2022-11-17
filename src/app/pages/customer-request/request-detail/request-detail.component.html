@@ -1,59 +1,57 @@
-<nz-card [nzTitle]="cardTitle" [nzExtra]="tabExtraTpl">
-  <ng-template #cardTitle>
-    <i nz-icon nzType="users"></i> {{customer.full_name}} ({{customer.phone}})
-  </ng-template>
-  <ng-template #tabExtraTpl>
-    <button nz-button nzType="primary" (click)="openDrawer(undefined)" class="add-button"><i nz-icon nzType="plus"></i>Add
-      Team
-    </button>
-  </ng-template>
-  <nz-table #requestList [nzData]="request" nzTableLayout="fixed"
-            nzSize="small"
-            [nzFrontPagination]="false"
-            [nzTotal]="totalElements"
-            [(nzPageIndex)]="pageNumber"
-            [(nzPageSize)]="pageSize"
-            nzShowPagination
-            nzShowSizeChanger
-            nzShowQuickJumper
-  >
-    <thead>
-    <tr>
-      <th nzAlign="center">#</th>
-      <th nzAlign="center">Business Type</th>
-      <th nzAlign="center">Products</th>
-      <th nzAlign="center">Requested Amount</th>
-      <th nzAlign="center">Status</th>
-      <th nzAlign="center">Able To Pay 5%</th>
-      <th nzAlign="center">Have Collateral?</th>
-      <th nzAlign="center">Fully Owned By Business?</th>
-      <th nzAlign="center">Number Of Years IN Business</th>
-      <th nzAlign="center">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let data of requestList.data; let i = index">
-      <td nzAlign="center">{{ i + 1 }}</td>
-      <td nzAlign="center"> {{ data.businesses.name }} </td>
-      <td nzAlign="center"> {{ data.products.name}}</td>
-      <td nzAlign="center"> {{ data.requested_loan_amt}}</td>
-      <td nzAlign="center">{{data.status.name}}</td>
-      <td nzAlign="center">{{data.able_to_pay_5_present}}</td>
-      <td nzAlign="center">{{data.have_collateral}}</td>
-      <td nzAlign="center">{{data.fully_owned_by_business}}</td>
-      <td nzAlign="center">{{data.no_of_year_in_business}}</td>
-      <td nzAlign="center">
-        <a class="edit-btn" (click)="openDrawer(data.id)"
-           nz-tooltip="edit">Edit</a>
-        <nz-divider nzType="vertical"></nz-divider>
-        <a nz-popconfirm="" nzPopconfirmTitle="Are you sure delete this task?"
-           (nzOnConfirm)="deleteOperator(data.id)" (nzOnCancel)="cancel()">
-          <i class="delete-button" nzTooltipColor="red" nz-icon nzType="delete" nzTheme="outline"
-             nz-tooltip="delete"></i>
+<nz-breadcrumb>
+    <nz-breadcrumb-item>
+        <a routerLink="/welcome">
+            <span nz-icon nzType="home"></span>
         </a>
-      </td>
-    </tr>
-    </tbody>
-  </nz-table>
-
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>
+        <a routerLink="/request">
+            <span>Request</span>
+        </a>
+    </nz-breadcrumb-item>
+    <nz-breadcrumb-item>Details</nz-breadcrumb-item>
+</nz-breadcrumb>
+<nz-card [nzTitle]="card1Title" >
+    <ng-template #card1Title>
+        <nz-card>
+            <button style="margin-left: 800px" nz-button nzType="primary" (click)="addNewRequestDrawer(customer?.id,customer?.full_name)"
+                    class="add-button">
+                Add Request
+            </button>
+            <p>{{customer?.full_name}} ({{customer?.phone}})</p>
+            <p>{{customer?.branches}}</p>
+        </nz-card>
+    </ng-template>
+    <nz-table #requestList [nzData]="request">
+        <div *ngFor="let data of requestList.data" nz-row style="padding: 30px">
+            <div nz-col [nzSpan]="8">
+                <p><b>Business</b> : {{ data.businesses.name }} </p>
+                <p><b>Enat Product</b> : {{ data.products.name }} </p>
+                <p><b>Years In Business</b> : {{ data.no_of_year_in_business }} </p>
+            </div>
+            <div nz-col [nzSpan]="8">
+                <p><b>Requested Loan Amount</b> : {{ data.requested_loan_amt }} </p>
+                <p><b>Request Status</b> : {{ data.status.name }} </p>
+                <p><b>Able to buy 5% ?</b> {{data.able_to_pay_5_present ? "yes" : "no"}}</p>
+            </div>
+            <div nz-col [nzSpan]="8">
+                <p><b>Have collateral ?</b> {{data.have_collateral ? "yes" : "no"}}</p>
+                <p><b>Fully owned by business ?</b> {{data.fully_owned_by_business ? "yes" : "no"}}</p>
+                <p><b>Remark ?</b> {{data.remark}}</p>
+                <a class="edit-btn" (click)="UpdateRequestsById(data.id)"
+                   nz-tooltip="edit">
+                    <button nz-button nzType="primary" nzBlock>Edit</button>
+                </a>
+                <nz-divider nzType="vertical"></nz-divider>
+                <a nz-popconfirm="" nzPopconfirmTitle="Are you sure delete this task?"
+                   (nzOnConfirm)="deleteRequests(data.id)" (nzOnCancel)="cancel()">
+                    <button nz-button nzType="primary" nzDanger nzBlock>
+                        <i class="delete-button" nzTooltipColor="red" nz-icon nzType="delete" nzTheme="outline"
+                           nz-tooltip="delete"></i>
+                    </button>
+                </a>
+            </div>
+            <nz-divider nzType="horizontal"></nz-divider>
+        </div>
+    </nz-table>
 </nz-card>

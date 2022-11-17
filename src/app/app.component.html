@@ -1,66 +1,63 @@
 <nz-layout class="app-layout">
-  <nz-sider nzTheme="light" class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
-    <ul nz-menu nzTheme="light" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/product">Enat-Product</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/status">Request-Status</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/request">Customers-Request</a>
-          </li>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/business-type">Business-Type</a>
-          </li>
+    <nz-sider nzTheme="light" class="menu-sidebar"
+              nzCollapsible
+              nzWidth="256px"
+              nzBreakpoint="md"
+              [(nzCollapsed)]="isCollapsed"
+              [nzTrigger]="null">
+        <ul nz-menu nzMode="inline" [nzInlineCollapsed]="isCollapsed">
+            <li nz-submenu nzOpen nzTitle="Dashboard" nzIcon="dashboard">
+                <ul>
+<!--                    <li class="li-side"  nz-menu-item nzMatchRouter>-->
+<!--                        <a routerLink="/welcome">Welcome</a>-->
+<!--                    </li>-->
+                    <li class="li-side" nz-menu-item nzMatchRouter>
+                        <a routerLink="/request">Customers-Request</a>
+                    </li>
+                </ul>
+            </li>
+                  <li nz-submenu nzOpen nzTitle="MAINTENANCE" nzIcon="form">
+                    <ul>
+                        <li class="li-side" nz-menu-item nzMatchRouter>
+                            <a routerLink="/business-type">Business-type</a>
+                        </li>
+                        <li class="li-side" nz-menu-item nzMatchRouter>
+                            <a routerLink="/product">Enat-product</a>
+                        </li>
+                        <li class="li-side" nz-menu-item nzMatchRouter>
+                            <a routerLink="/status">Status</a>
+                        </li>
+                    </ul>
+                  </li>
         </ul>
-      </li>
-<!--      <li nz-submenu nzOpen nzTitle="Form" nzIcon="form">-->
-<!--        <ul>-->
-<!--          <li nz-menu-item nzMatchRouter>-->
-<!--            <a>Basic Form</a>-->
-<!--          </li>-->
-<!--        </ul>-->
-<!--      </li>-->
-    </ul>
-  </nz-sider>
-  <nz-layout>
-    <nz-header>
-      <div class="app-header">
+    </nz-sider>
+    <nz-layout>
+        <nz-header>
+            <div class="app-header">
         <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
             <span class="trigger"
                   nz-icon
                   [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
             ></span>
         </span>
-        <span class="user-name">
+                <span class="user-name">
                 <ul nz-menu nzMode="horizontal">
                   <li nz-menu-item>
                     {{ authenticatedUserName }}
-                    <nz-tag [nzColor]="'#108ee9'">{{ userBranch?.name }}</nz-tag>
+                      <nz-tag [nzColor]="'#108ee9'">{{ userBranch?.name }}</nz-tag>
                   </li>
                   <li nz-menu-item>
                     <span class="ng-star-inserted" (click)="logout()">Logout</span>
                   </li>
                 </ul>
               </span>
-      </div>
-    </nz-header>
-    <nz-content>
-      <div class="inner-content">
-        <router-outlet></router-outlet>
-      </div>
-    </nz-content>
-    <nz-footer> Enat Bank Sc. ©{{ currentYear }} </nz-footer>
-  </nz-layout>
+            </div>
+        </nz-header>
+        <nz-content>
+            <div class="inner-content">
+                <router-outlet></router-outlet>
+            </div>
+        </nz-content>
+        <nz-footer> Enat Bank Sc. ©{{ currentYear }} </nz-footer>
+    </nz-layout>
 </nz-layout>

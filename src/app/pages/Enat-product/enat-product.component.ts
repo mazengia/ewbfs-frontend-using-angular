@@ -32,7 +32,7 @@ export class EnatProductComponent implements OnInit {
     this.loadProducts();
   }
 
-  deleteOperator(id: number) {
+  deleteEnatProduct(id: number) {
     this.productService.deleteProduct(id).subscribe(
       (data) => {
         this.loadProducts();

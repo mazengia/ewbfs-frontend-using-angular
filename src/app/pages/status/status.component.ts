@@ -37,7 +37,7 @@ export class StatusComponent implements OnInit {
     this.loadProducts();
   }
 
-  deleteOperator(id: number) {
+  deleteStatus(id: number) {
     this.statusService.deleteStatus(id).subscribe(
       (data) => {
         this.loadProducts();

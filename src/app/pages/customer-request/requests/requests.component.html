@@ -88,5 +88,11 @@
       <label nz-checkbox formControlName="able_to_pay_5_present">Able To Pay 5%</label>
     </nz-form-control>
   </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Description</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write remark! ">
+      <textarea class="input" nz-input formControlName="remark" placeholder="Write remark here"></textarea>
+    </nz-form-control>
+  </nz-form-item>
   <button nz-button nzType="primary" [disabled]="!requestForm.valid">Save</button>
 </form>

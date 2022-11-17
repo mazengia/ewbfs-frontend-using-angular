@@ -36,7 +36,7 @@ export class BusinessTypeComponent implements OnInit {
     this.loadBusinessType();
   }
 
-  deleteOperator(id: number) {
+  deleteBusinessType(id: number) {
     this.businessTypeService.deleteBusinessType(id).subscribe(
       (data) => {
         this.loadBusinessType();

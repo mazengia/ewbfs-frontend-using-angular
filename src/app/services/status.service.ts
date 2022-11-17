@@ -16,23 +16,23 @@ export class StatusService {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<StatusResponse>(`${environment.Url}/status`, {params});
+    return this.http.get<StatusResponse>(`${environment.Back_End_Url}/status`, {params});
   }
 
   addStatus(status: Status): Observable<Status> {
-    return this.http.post<Status>(`${environment.Url}/status`, status);
+    return this.http.post<Status>(`${environment.Back_End_Url}/status`, status);
   }
 
   deleteStatus(id: number): Observable<Status> {
-    return this.http.delete<Status>(`${environment.Url}/status/${id}`);
+    return this.http.delete<Status>(`${environment.Back_End_Url}/status/${id}`);
   }
 
   findStatusById(id: number): Observable<Status> {
-    return this.http.get<Status>(`${environment.Url}/status/${id}`);
+    return this.http.get<Status>(`${environment.Back_End_Url}/status/${id}`);
   }
 
   updateStatus(id: number, status: Status): Observable<Status> {
-    return this.http.put<Status>(`${environment.Url}/status/${id}`, status);
+    return this.http.put<Status>(`${environment.Back_End_Url}/status/${id}`, status);
   }
 
 }

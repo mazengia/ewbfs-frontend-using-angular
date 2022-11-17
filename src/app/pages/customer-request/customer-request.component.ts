@@ -37,7 +37,7 @@ export class CustomerRequestComponent implements OnInit {
     this.loadCustomers();
   }
 
-  deleteOperator(id: number) {
+  deleteCustomer(id: number) {
     this.customerService.deleteCustomers(id).subscribe(
       (data) => {
         this.loadCustomers();
@@ -74,14 +74,14 @@ export class CustomerRequestComponent implements OnInit {
       this.loadCustomers()
     })
   }
-  openRequestDrawer(id: number,fullName:string): void {
+  addNewRequestDrawer(customerId: number, fullName:string): void {
     const drawerRef = this.drawerService.create<RequestsComponent,
-      { id: number,fullName:string }>({
-      nzTitle: `${id ?  fullName+' Create' : 'Update'} Request`,
+      { customerId: number,fullName:string }>({
+      nzTitle: `${customerId ?  fullName+' Create' : 'Update'} Request`,
       nzWidth:450,
       nzContent: RequestsComponent,
       nzContentParams: {
-        value: id,
+        customerId: customerId,
         fullName:fullName,
       },
       nzClosable: true,

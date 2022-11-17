@@ -8,7 +8,7 @@ import {BusinessTypeComponent} from "./pages/business-type/business-type.compone
 import {RequestDetailComponent} from "./pages/customer-request/request-detail/request-detail.component";
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  { path: '', pathMatch: 'full', redirectTo: '/request' },
   { path: 'welcome', component: WelcomeComponent},
   { path: 'product', component: EnatProductComponent},
   { path: 'status', component: StatusComponent},

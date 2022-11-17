@@ -49,6 +49,7 @@ import {
 } from "./pages/business-type/create-update-business/create-update-business.component";
 import {RequestDetailComponent} from "./pages/customer-request/request-detail/request-detail.component";
 import {NzListModule} from "ng-zorro-antd/list";
+import {NzBreadCrumbModule} from "ng-zorro-antd/breadcrumb";
 
 registerLocaleData(en);
 
@@ -82,7 +83,7 @@ registerLocaleData(en);
         AppRoutingModule,
         IconsProviderModule,
         NzLayoutModule,
-        NzMenuModule, NzDropDownModule, NzTagModule, NzCardModule, NzTableModule, NzDividerModule, NzPopconfirmModule, NzToolTipModule, NzButtonModule, NzFormModule, ReactiveFormsModule, NzSelectModule, NzInputModule, NzDatePickerModule, NzCheckboxModule, NzListModule
+        NzMenuModule, NzDropDownModule, NzTagModule, NzCardModule, NzTableModule, NzDividerModule, NzPopconfirmModule, NzToolTipModule, NzButtonModule, NzFormModule, ReactiveFormsModule, NzSelectModule, NzInputModule, NzDatePickerModule, NzCheckboxModule, NzListModule, NzBreadCrumbModule
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: RequestInterceptorService, multi: true},

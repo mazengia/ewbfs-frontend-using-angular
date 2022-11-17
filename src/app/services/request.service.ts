@@ -17,28 +17,28 @@ export class RequestService {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<RequestsResponse>(`${environment.Url}/requests`, {params});
+    return this.http.get<RequestsResponse>(`${environment.Back_End_Url}/requests`, {params});
   }
   getRequestByCustomerId(pageNumber: number = 0, pageSize: number = 20,id:any): Observable<RequestsResponse> {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<RequestsResponse>(`${environment.Url}/requests/loan/${id}`,{params});
+    return this.http.get<RequestsResponse>(`${environment.Back_End_Url}/requests/loan/${id}`,{params});
   }
   addRequest(request: Request): Observable<Request> {
-    return this.http.post<Request>(`${environment.Url}/requests`, request);
+    return this.http.post<Request>(`${environment.Back_End_Url}/requests`, request);
   }
 
   deleteRequest(id: number): Observable<Request> {
-    return this.http.delete<Request>(`${environment.Url}/requests/${id}`);
+    return this.http.delete<Request>(`${environment.Back_End_Url}/requests/${id}`);
   }
 
   findRequestById(id: number): Observable<any> {
-    return this.http.get(`${environment.Url}/requests/${id}`);
+    return this.http.get(`${environment.Back_End_Url}/requests/${id}`);
   }
 
   updateRequest(id: number, request: Request): Observable<Request> {
-    return this.http.put<Request>(`${environment.Url}/requests/${id}`, request);
+    return this.http.put<Request>(`${environment.Back_End_Url}/requests/${id}`, request);
   }
 
 }

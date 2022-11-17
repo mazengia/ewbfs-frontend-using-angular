@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { JwksValidationHandler, OAuthService } from 'angular-oauth2-oidc';
+import { OAuthService } from 'angular-oauth2-oidc';
 import jwt_decode from 'jwt-decode';
-import { authConfig } from '../core/auth-config';
 @Injectable({
   providedIn: 'root',
 })

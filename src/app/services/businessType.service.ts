@@ -17,23 +17,23 @@ export class BusinessTypeService {
     const params = new HttpParams()
       .append('page', `${pageNumber}`)
       .append('size', `${pageSize}`);
-    return this.http.get<BusinessTypeResponse>(`${environment.Url}/business`, {params});
+    return this.http.get<BusinessTypeResponse>(`${environment.Back_End_Url}/business`, {params});
   }
 
   addBusinessType(businessType: BusinessType): Observable<BusinessType> {
-    return this.http.post<BusinessType>(`${environment.Url}/business`, businessType);
+    return this.http.post<BusinessType>(`${environment.Back_End_Url}/business`, businessType);
   }
 
   deleteBusinessType(id: number): Observable<BusinessType> {
-    return this.http.delete<BusinessType>(`${environment.Url}/business/${id}`);
+    return this.http.delete<BusinessType>(`${environment.Back_End_Url}/business/${id}`);
   }
 
   findBusinessTypeById(id: number): Observable<any> {
-    return this.http.get(`${environment.Url}/business/${id}`);
+    return this.http.get(`${environment.Back_End_Url}/business/${id}`);
   }
 
   updateBusinessType(id: number, businessType: BusinessType): Observable<BusinessType> {
-    return this.http.put<BusinessType>(`${environment.Url}/business/${id}`, businessType);
+    return this.http.put<BusinessType>(`${environment.Back_End_Url}/business/${id}`, businessType);
   }
 
 }
