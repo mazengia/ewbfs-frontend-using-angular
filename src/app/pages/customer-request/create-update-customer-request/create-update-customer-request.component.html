@@ -1,0 +1,47 @@
+<form nzLayout="vertical" nz-form [formGroup]="customerForm" (ngSubmit)="onSubmit()"
+      xmlns="http://www.w3.org/1999/html">
+  <nz-form-item>
+    <nz-form-label nzRequired>Full Name</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write full name name! ">
+      <input class="input" nz-input formControlName="full_name" placeholder="Write full name name! here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Phone</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write phone number! ">
+      <input class="input" nz-input formControlName="phone" placeholder="Write phone number here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Birth Date</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write birth date! ">
+      <nz-date-picker formControlName="age" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-date-picker>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Education</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write education! ">
+      <input class="input" nz-input formControlName="education" placeholder="Write education here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Nationality</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write nationality! ">
+      <input class="input" nz-input formControlName="nationality" placeholder="Write nationality here"/>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write nationality! ">
+      <label nz-checkbox formControlName="valid_trade_license">Valid Trade License</label>
+    </nz-form-control>
+  </nz-form-item>
+
+  <nz-form-item>
+    <nz-form-label>Branch</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write branch! ">
+      <input [ngModel]="userBranch?.name" [readonly]="true" nz-input formControlName="branches" placeholder="Write branch here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button nzType="primary" [disabled]="!customerForm.valid">Save</button>
+</form>

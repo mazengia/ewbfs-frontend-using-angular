@@ -1,0 +1,92 @@
+<form nzLayout="vertical" nz-form [formGroup]="requestForm" (ngSubmit)="onSubmit()"
+      xmlns="http://www.w3.org/1999/html">
+  <nz-form-item>
+    <nz-form-label nzRequired>Enat-Product</nz-form-label>
+    <div formGroupName="products">
+      <nz-form-control [nzSpan]="24" nzErrorTip="please select product! ">
+        <nz-select class="input" formControlName="id"
+                   nzAllowClear
+                   nzShowSearch
+                   nzPlaceHolder="Write product type">
+          <nz-option
+            nzCustomContent
+            *ngFor="let data of product" [nzValue]="data.id"
+            nzLabel="{{data.name}}">
+            <nz-divider nzType="vertical"></nz-divider>
+            <strong>{{data.name}} {{data.description}}</strong>
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </div>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Business Type</nz-form-label>
+    <div formGroupName="businesses">
+      <nz-form-control [nzSpan]="24" nzErrorTip="please select business type! ">
+        <nz-select class="input" formControlName="id"
+                   nzAllowClear
+                   nzShowSearch
+                   nzPlaceHolder="Write business type">
+          <nz-option
+            nzCustomContent
+            *ngFor="let data of businessType" [nzValue]="data.id"
+            nzLabel="{{data.name}}">
+            <nz-divider nzType="vertical"></nz-divider>
+            <strong>{{data.name}} {{data.description}}</strong>
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </div>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label nzRequired>Status</nz-form-label>
+    <div formGroupName="status">
+      <nz-form-control [nzSpan]="24" nzErrorTip="please select status! ">
+        <nz-select class="input" formControlName="id"
+                   nzAllowClear
+                   nzShowSearch
+                   nzPlaceHolder="Write status">
+          <nz-option
+            nzCustomContent
+            *ngFor="let data of status" [nzValue]="data.id"
+            nzLabel="{{data.name}}">
+            <nz-divider nzType="vertical"></nz-divider>
+            <strong>{{data.name}} {{data.description}}</strong>
+          </nz-option>
+        </nz-select>
+      </nz-form-control>
+    </div>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Loan Amount</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write loan amount! ">
+      <input class="input" type="number" nz-input formControlName="requested_loan_amt"
+             placeholder="Write loan amount here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Number Of Year In Business</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write number of year! ">
+      <input class="input" type="number" nz-input formControlName="no_of_year_in_business"
+             placeholder="Write number of year here"/>
+    </nz-form-control>
+  </nz-form-item>
+
+
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24">
+      <label nz-checkbox formControlName="have_collateral">Have Collateral</label>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24">
+      <label nz-checkbox formControlName="fully_owned_by_business">Fully Owned By Business</label>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-control [nzSpan]="24">
+      <label nz-checkbox formControlName="able_to_pay_5_present">Able To Pay 5%</label>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button nzType="primary" [disabled]="!requestForm.valid">Save</button>
+</form>

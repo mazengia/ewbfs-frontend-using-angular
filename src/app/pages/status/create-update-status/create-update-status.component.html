@@ -1,0 +1,16 @@
+<form nzLayout="vertical" nz-form [formGroup]="productForm" (ngSubmit)="onSubmit()"
+      xmlns="http://www.w3.org/1999/html">
+  <nz-form-item>
+    <nz-form-label nzRequired>Enat-Product Name</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write Enat product name! ">
+      <input class="input" nz-input formControlName="name" placeholder="Write Enat product name! here"/>
+    </nz-form-control>
+  </nz-form-item>
+  <nz-form-item>
+    <nz-form-label>Description</nz-form-label>
+    <nz-form-control [nzSpan]="24" nzErrorTip="Please write description! ">
+      <textarea class="input" nz-input formControlName="description" placeholder="Write description here"></textarea>
+    </nz-form-control>
+  </nz-form-item>
+  <button nz-button nzType="primary" [disabled]="!productForm.valid">Save</button>
+</form>

@@ -1,0 +1,51 @@
+<nz-card [nzTitle]="cardTitle" [nzExtra]="tabExtraTpl">
+  <ng-template #cardTitle>
+    <i nz-icon nzType="branches"></i>  Business Type
+  </ng-template>
+  <ng-template #tabExtraTpl>
+    <button nz-button nzType="primary" (click)="openDrawer(undefined)" class="add-button"><i nz-icon nzType="plus"></i>Add
+      Business Type
+    </button>
+  </ng-template>
+  <nz-table #productList [nzData]="product" nzTableLayout="fixed"
+            nzSize="small"
+            [nzFrontPagination]="false"
+            [nzTotal]="totalElements"
+            [(nzPageIndex)]="pageNumber"
+            [(nzPageSize)]="pageSize"
+            nzShowPagination
+            nzShowSizeChanger
+            nzShowQuickJumper
+            (nzPageIndexChange)="loadBusinessType()"
+            (nzPageSizeChange)="loadBusinessType(true)"
+  >
+    <thead>
+    <tr>
+      <th nzAlign="center">#</th>
+      <th nzCustomFilter nzAlign="center">
+        Business Type
+      </th>
+      <th nzAlign="center">Description</th>
+      <th nzAlign="center">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let data of productList.data; let i = index">
+      <td nzAlign="center">{{ i + 1 }}</td>
+      <td nzAlign="center"> {{ data.name }} </td>
+      <td nzAlign="center"> {{ data.description }}</td>
+      <td nzAlign="center">
+        <a class="edit-btn"   (click)="openDrawer(data.id)"
+           nz-tooltip="edit">Edit</a>
+        <nz-divider nzType="vertical"></nz-divider>
+        <a nz-popconfirm="" nzPopconfirmTitle="Are you sure delete this task?"
+           (nzOnConfirm)="deleteOperator(data.id)" (nzOnCancel)="cancel()">
+          <i class="delete-button" nzTooltipColor="red" nz-icon nzType="delete" nzTheme="outline"
+             nz-tooltip="delete"></i>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </nz-table>
+
+</nz-card>
